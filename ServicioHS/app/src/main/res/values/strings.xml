@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ServicioHS</string>
+    <string name="arranca">Arrancar Servicio</string>
+    <string name="para">Parar Servicio</string>
 </resources>
