@@ -11,6 +11,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class MyService extends Service {
+
+    private DoBackgroundTask dbt;
+
     // llamado al crearse el servicio
     @Override
     public void onCreate() {
@@ -22,12 +25,13 @@ public class MyService extends Service {
         // return null;
         return null;
     }
+
     // llamado en servicios Ejecutados -- startService()
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //simula la descarga de 4 archivos
         try {
-            new DoBackgroundTask().execute(new URL(
+            dbt = (DoBackgroundTask) new DoBackgroundTask().execute(new URL(
                     "http://www.amazon.com/somefiles.pdf"), new URL(
                     "http://www.wrox.com/somefiles.pdf"), new URL(
                     "http://www.google.com/somefiles.pdf"), new URL(
@@ -89,6 +93,7 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        dbt.cancel(true);
         Toast.makeText(this, "Servicio Destruido", Toast.LENGTH_LONG).show();
     }
 }
