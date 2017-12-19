@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="com.htcdiurno.practicaintentservice.ServicioOperacion" android:process=":remote" />
     </application>
 
 </manifest>

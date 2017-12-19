@@ -22,7 +22,7 @@ public class ServicioOperacion extends IntentService {
 
         double n = intent.getExtras().getDouble("numero");
 
-        SystemClock.sleep(5000);
+        SystemClock.sleep(25000);
 
         Intent i = new Intent();
 
